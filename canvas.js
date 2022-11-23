@@ -3,7 +3,6 @@ let screen_data = '';
 window.addEventListener('load', () => {
     const canvas = document.getElementById('canvas');
 
-    
     canvas.setAttribute('width', window.innerWidth)
     canvas.setAttribute('height', window.innerHeight)
 });

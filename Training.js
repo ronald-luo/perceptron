@@ -19,11 +19,10 @@ class Point {
         const ctx = canvas.getContext('2d');
 
         // draw a circle representing the location of the point
-        // green is 1, red is -1
         if (canvas.getContext) {
             ctx.beginPath();
             ctx.arc(this.x, this.y, 10, 0, 2*Math.PI, true);
-            ctx.fillStyle = 'black';
+            ctx.fillStyle = 'red';
             ctx.fill();
             ctx.stroke();
         };
@@ -69,6 +68,12 @@ const draw = (() => {
             points.push(new Point())
             points[i].show()
             screen_data = canvas.toDataURL();
+
+            let output = percept.getOutput(points[i].inputs);
+            let target = points[i].target;
+
+            points[i].changeColor(output == target)
+  
         }
     });
 })();
@@ -81,11 +86,7 @@ let interval = setInterval(() => {
     percept.train(inputs, target);
 
     let output = percept.getOutput(inputs);
-    if (output == target) {
-        current.changeColor(true);
-    } else {
-        current.changeColor(false);
-    }
+    current.changeColor(output == target);
 
     if (trainingIndex == points.length) {
         trainingIndex = 0;
