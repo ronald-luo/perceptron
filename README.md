@@ -1,4 +1,5 @@
 ## Perceptron
 
 Check it out here: [link](https://ronald-luo.github.io/perceptron)
-More websites: [link](git add README.md)
+
+More websites: [link](https://www.ronald-luo.com/100-websites/)
